@@ -23,10 +23,10 @@
     <div>
         <el-row class="div3">
             <el-link href="https://www.google.com.tw/" target="_blank" rel="noreferrer noopenner">Google</el-link>
-            <el-link type="primary">primary</el-link>
-            <el-link type="success">success</el-link>
+            <el-link href="https://zh-tw.facebook.com/" target="_blank" rel="noreferrer noopenner" type="primary">Facebook</el-link>
+            <el-link href="https://vuejs.org/" target="_blank" rel="noreferrer noopenner" type="success">Vue</el-link>
             <el-link type="warning">warning</el-link>
-            <el-link type="danger">danger</el-link>
+            <el-link href="https://www.google.com/intl/zh-TW_tw/gmail/about/" target="_blank" rel="noreferrer noopenner" type="danger">G-mail</el-link>
             <el-link type="info">info</el-link>
         </el-row>
     </div>
