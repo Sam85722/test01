@@ -49,6 +49,21 @@
             <el-button @click="open">OPEN</el-button>
         </el-config-provider>
     </div>
+    <div>
+        <el-popconfirm        
+            confirm-button-text="OK"
+            cancel-button-text="No, Thanks"
+            :icon="InfoFilled"
+            icon-color="#626AEF"
+            title="Are you sure to delete this?"
+            @confirm="confirmEvent"
+            @cancel="cancelEvent"
+        >
+            <template #reference>
+                <el-link :icon="Delete">Delete</el-link>
+            </template>
+        </el-popconfirm>
+    </div>
 </template>
 
 <script lang="ts" setup>
@@ -69,6 +84,15 @@
     })
     const open = () => {
         ElMessage('This is a message.')
+    }
+
+
+    import { InfoFilled } from '@element-plus/icons-vue'
+    const confirmEvent = () => {
+        console.log('confirm!')
+    }
+    const cancelEvent = () => {
+        console.log('cancel!')
     }
 </script>
 
