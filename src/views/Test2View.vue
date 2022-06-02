@@ -8,6 +8,17 @@
         輸入資料
     </el-button>
 
+
+
+    <div id="div2">
+        <el-descriptions title="使用者資訊">
+            <el-descriptions-item label="姓名 :">{{ form.name }}</el-descriptions-item>
+            <el-descriptions-item label="地區 :">{{ form.region }}</el-descriptions-item>
+        </el-descriptions>
+    </div>
+
+
+
     <el-dialog
         v-model="dialogFormVisible"
         title="使用者輸入"
@@ -60,13 +71,7 @@
         desc: '',
     })
 
-
-    const confirmEvent = () => {
-        console.log('confirm!')
-    }
-    const cancelEvent = () => {
-        console.log('cancel!')
-    }
+    
 
 </script>
 
@@ -96,4 +101,9 @@
     .dialog-footer button:first-child {
         margin-right: 10px;
     }
+
+    #div2 {
+        border: 2px solid black;
+    }
+    
 </style>

@@ -1,0 +1,154 @@
+<template>
+  <div class="advertise-management-list">
+          
+          <el-table
+            :data="advertiseList.data"         
+            @select="HandleSelectChange" 
+            border
+            stripe
+            style="width: 100%"
+          >
+            <el-table-column  sortable  min-width="10%" label="圖片" align="center">
+              <template #default="scope">
+                <img
+                  :src="scope.row.picture"
+                  style="max-height: 100%; max-width: 100%; width: 150px;"
+                />
+              </template>
+            </el-table-column>
+
+            <el-table-column
+              sortable
+              min-width="10%"
+              label="建立日期"
+              prop="create_date"
+            />
+            <el-table-column
+              sortable
+              min-width="10%"
+              label="廣告名稱"
+              prop="name"
+            />
+            <el-table-column
+              sortable
+              min-width="10%"
+              label="版面名稱"
+              prop="type_name"
+            />
+            <el-table-column
+              sortable
+              min-width="10%"
+              label="上架日期"
+              prop="start_date"
+            />
+            <el-table-column
+              sortable
+              min-width="10%"
+              label="下架日期"
+              prop="end_date"
+            />
+            <el-table-column  min-width="10%" label="編輯">
+              <template #default="scope">
+                <AdvertiseEditPage 
+                  :id="scope.row.id"
+                  :filterSlideShowPictures="filterSlideShowPictures"
+                />
+                <el-button type="danger" size="mini" @click="HandleJump"
+                >新增</el-button
+              >
+              </template>
+            </el-table-column>
+
+            <el-table-column  min-width="10%" label="刪除">
+              <template #default="scope">
+                <el-tooltip
+                  class="item"
+                  effect="dark"
+                  content="刪除第二螢幕廣告設定"
+                  placement="right"
+                >
+                  <el-button
+                    type="danger"
+                    size="mini"
+                    @click="DeleteSlideShowPictures(scope.row.id)"
+                  >
+                    刪除
+                  </el-button>
+                </el-tooltip>
+              </template>
+            </el-table-column>
+
+
+          </el-table>
+
+          <el-button @click="UpdateData" type="primary">change</el-button>
+          <el-button @click="UpdateData2" type="primary">change2</el-button>
+        </div>
+</template>
+
+<script>
+
+// import store from "@/store";
+// import axios from "axios";
+// import router from '@/router'
+ 
+import {onMounted, reactive } from "vue";
+
+// import AdvertiseEditPage from "./AdvertiseEditPage.vue"//編輯廣告內頁
+// 廣告維護 API,2022.05.25 Add,Y.NAN
+
+import states from "@/assets/advertise.json";
+export default {
+  
+    setup() {
+      const advertiseList =  reactive({data:[]})
+ 
+
+      onMounted(() => { 
+        console.log(states)
+        // let contentx = JSON.parse(states);
+      
+        advertiseList.data=states.data
+          
+        // console.log(contentx)
+        //AdsListData.data=content.
+        // isLoadingArray.data[0] = true; //開始判斷loading狀態陣列
+        // apiGetAdsList()
+        // useQueryAdsList(filterAds.value)
+        //   .then((response) => {
+        //      console.log('廣告維護一覽表=', response);
+        //   })
+        //   .catch(() => {
+        //     //isLoadingArray.data[0] = false; //結束判斷loading狀態陣列
+        //   });
+      });
+//   
+
+const UpdateData = () => {
+  advertiseList.data.forEach(advertise => {
+    advertise.name = advertise.name + " test1";
+  })
+}
+
+const UpdateData2 = () => {
+  advertiseList.data.forEach(advertise => {
+    // let array = advertise.start_date.split(' ');
+    console.log(advertise.create_date)
+    
+  })
+}
+
+    return{
+      // state,
+      advertiseList,
+      UpdateData,
+      UpdateData2,
+    }
+  }
+    
+}
+</script>
+
+<style>
+
+</style>
