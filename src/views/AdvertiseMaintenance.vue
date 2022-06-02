@@ -82,7 +82,7 @@
           </el-table>
 
           <el-button @click="UpdateData" type="primary">change</el-button>
-          <el-button @click="UpdateData2" type="primary">change2</el-button>
+          <el-button @click="UpdateData2" type="primary">UTC to GMT</el-button>
         </div>
 </template>
 
@@ -132,8 +132,14 @@ const UpdateData = () => {
 
 const UpdateData2 = () => {
   advertiseList.data.forEach(advertise => {
-    // let array = advertise.start_date.split(' ');
-    console.log(advertise.create_date)
+    
+    // console.log(advertise.create_date.split(" "))
+    // console.log(new Date(advertise.create_date))
+    advertise.create_date = new Date(advertise.create_date)
+    advertise.start_date = new Date(advertise.start_date)
+    advertise.end_date = new Date(advertise.end_date)
+
+    
     
   })
 }
