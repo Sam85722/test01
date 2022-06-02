@@ -22,7 +22,15 @@
               min-width="10%"
               label="建立日期"
               prop="create_date"
-            />
+            >
+              <template #default="scope">
+                
+                  <el-icon><timer /></el-icon>
+                  <span readonly style="margin-left: 10px">{{ scope.row.create_date }}</span>
+                  <!-- <el-date-picker type="date"  readonly >{{ scope.row.create_date }}</el-date-picker> -->
+                  
+              </template>
+            </el-table-column>
             <el-table-column
               sortable
               min-width="10%"
@@ -139,8 +147,6 @@ const UpdateData2 = () => {
     advertise.start_date = new Date(advertise.start_date)
     advertise.end_date = new Date(advertise.end_date)
 
-    
-    
   })
 }
 
