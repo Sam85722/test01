@@ -21,13 +21,19 @@
               sortable
               min-width="10%"
               label="建立日期"
-              prop="create_date"
+              prop=""
             >
               <template #default="scope">
                 
-                  <el-icon><timer /></el-icon>
-                  <span readonly style="margin-left: 10px">{{ scope.row.create_date }}</span>
-                  <!-- <el-date-picker type="date"  readonly >{{ scope.row.create_date }}</el-date-picker> -->
+                  <!-- <el-icon><timer /></el-icon>
+                  <span class="aaa" readonly style="margin-left: 10px">{{ scope.row.create_date }}</span> -->
+                  <el-date-picker
+                    type="date"
+                    v-model="scope.row.create_date"
+                    format="YYYY-MM-DD"
+                    readonly
+                  >
+                  </el-date-picker>
                   
               </template>
             </el-table-column>
@@ -47,14 +53,41 @@
               sortable
               min-width="10%"
               label="上架日期"
-              prop="start_date"
-            />
+              prop=""
+            >
+              <template #default="scope">
+                
+                  <!-- <el-icon><timer /></el-icon>
+                  <span class="aaa" readonly style="margin-left: 10px">{{ scope.row.create_date }}</span> -->
+                  <el-date-picker
+                    type="date"
+                    v-model="scope.row.start_date"
+                    format="YYYY-MM-DD"
+                    readonly
+                  >
+                  </el-date-picker>
+              </template>
+            </el-table-column>
+
             <el-table-column
               sortable
               min-width="10%"
               label="下架日期"
-              prop="end_date"
-            />
+              prop=""
+            >
+              <template #default="scope">
+                
+                  <!-- <el-icon><timer /></el-icon>
+                  <span class="aaa" readonly style="margin-left: 10px">{{ scope.row.create_date }}</span> -->
+                  <el-date-picker
+                    type="date"
+                    v-model="scope.row.end_date"
+                    format="YYYY-MM-DD"
+                    readonly
+                  >
+                  </el-date-picker>
+              </template>
+            </el-table-column>
             <el-table-column  min-width="10%" label="編輯">
               <template #default="scope">
                 <AdvertiseEditPage 
@@ -147,6 +180,7 @@ const UpdateData2 = () => {
     advertise.start_date = new Date(advertise.start_date)
     advertise.end_date = new Date(advertise.end_date)
 
+    // document.querySelector(".aaa").style.color = "red"
   })
 }
 
