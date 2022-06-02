@@ -32,6 +32,7 @@
                     v-model="scope.row.create_date"
                     format="YYYY-MM-DD"
                     readonly
+                    disabled
                   >
                   </el-date-picker>
                   
@@ -64,6 +65,7 @@
                     v-model="scope.row.start_date"
                     format="YYYY-MM-DD"
                     readonly
+                    disabled
                   >
                   </el-date-picker>
               </template>
@@ -84,6 +86,7 @@
                     v-model="scope.row.end_date"
                     format="YYYY-MM-DD"
                     readonly
+                    disabled
                   >
                   </el-date-picker>
               </template>
