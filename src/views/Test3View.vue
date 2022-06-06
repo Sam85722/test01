@@ -64,31 +64,50 @@ export default {
 
 
         onMounted( () => {
+
             var config = {
-            method: 'get',
-            url: 'https://app.sjen.com.tw/nms/pharmacist-service/self/canned-messages',
-            headers: { }
-            };
+                method: 'get',
+                url: 'https://app.sjen.com.tw/nms/pharmacist-service/self/canned-messages',
+                headers: { }
+                };
 
             axios(config)
             .then(function (response) {
                 // console.log(JSON.stringify(response.data));
-            
-                let axi_data = response.data.data
-                axiosDataList.axi = axi_data;
-                // console.log(axi_data)
+                // console.log(JSON.stringify(response.data.data));
 
+            
+                var axi_data = response.data.data
+                axiosDataList.axi = axi_data;
+                console.log(JSON.stringify(axiosDataList.axi))
+
+                // axiosDataList.axi.forEach(update => {
+                    
+                // })
             })
             .catch(function (error) {
                 console.log(error);
             });
 
             
+            // Post
+            // axios.post('https://app.sjen.com.tw/nms/pharmacist-service/self/canned-messages',{
+            //     "customer_no": "123123",
+            //     "content": "您好"
+            // })
+            //     .then(function (response) {
+            //         console.log(JSON.stringify(response.data));
+            //     })
+            //     .catch(function (error) {
+            //         console.log(error);
+            //     });
+
 
             dataList.accounts = testdata.accounts
 
             // console.log(dataList.accounts)
 
+           
 
         })
 
