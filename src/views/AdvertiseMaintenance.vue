@@ -154,17 +154,7 @@ export default {
       
         advertiseList.data=states.data
           
-        // console.log(contentx)
-        //AdsListData.data=content.
-        // isLoadingArray.data[0] = true; //開始判斷loading狀態陣列
-        // apiGetAdsList()
-        // useQueryAdsList(filterAds.value)
-        //   .then((response) => {
-        //      console.log('廣告維護一覽表=', response);
-        //   })
-        //   .catch(() => {
-        //     //isLoadingArray.data[0] = false; //結束判斷loading狀態陣列
-        //   });
+        
       });
 //   
 
