@@ -77,6 +77,7 @@ export default {
                 let axi_data = response.data.data
                 axiosDataList.axi = axi_data;
                 // console.log(axi_data)
+
             })
             .catch(function (error) {
                 console.log(error);
