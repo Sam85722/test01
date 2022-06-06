@@ -8,8 +8,9 @@ import 'element-plus/dist/index.css'
 // 
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 // 
-import axios from 'axios'
-import VueAxios from 'vue-axios'
+
+// import axios from 'axios';
+// import VueAxios from 'vue-axios'
 // 
 
 const app = createApp(App)
@@ -20,6 +21,6 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   }
 // 
 
-app.use(router).use(ElementPlus).use(VueAxios, axios)
+app.use(router).use(ElementPlus)
 
 app.mount('#app')
