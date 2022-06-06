@@ -16,7 +16,8 @@
     </el-table>
     
     <el-button @click="UpdateData" type="primary">change</el-button>
-    
+    <el-button @click="UpdateData2" type="danger">change2</el-button>
+
 </template>
 
 <script>
@@ -43,9 +44,17 @@ export default {
             })
         }
 
+        const UpdateData2 = ()=> {
+            dataList.accounts.forEach(update => {
+                update.pet = update.pet + " " + update.pet
+            })
+        }
+
         return {
             dataList,
-            UpdateData
+            UpdateData,
+            UpdateData2
+
         }
     }
 }
