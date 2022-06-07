@@ -58,10 +58,6 @@ export default {
         const dataList = reactive({accounts:[]})
         const axiosDataList = reactive({axi:[]})
 
-        
-
-        
-
 
         onMounted( () => {
 
