@@ -23,13 +23,17 @@
 </div>
 
 <div>
-    <el-button @click="Click">Click</el-button>
-    <el-button @click="Render">Render</el-button>
-
-
-    <!-- <h4>{{ axiosDataList.axi }}</h4> -->
+    <el-button @click="Click" style="color:red;">點擊載入</el-button>
+    <el-button @click="Render" style="color:blue;">渲染畫面</el-button>
+    <el-button @click="Clear" style="color:green;">清空畫面</el-button>
 
 </div>
+
+
+<div>
+    <h6>{{ axiosDataList.axi }}</h6>
+</div>
+
 
 </template>
 
@@ -60,6 +64,13 @@ export default {
         const Render = () => {
             axiosDataList.axi = store.getters.getTest;
             console.log(axiosDataList.axi)
+            //
+            
+            //
+        }
+
+        const Clear = () => {
+            axiosDataList.axi = []
         }
 
         
@@ -68,9 +79,17 @@ export default {
             Click,
             Render,
             axiosDataList,
+            Clear,
         }
     }
 }
 
 
 </script>
+
+<style>
+    .el-button:hover {
+        /* background-color: cadetblue; */
+        background-color: black !important;
+    }
+</style>

@@ -14,9 +14,30 @@ const actions = {
 			useTestAPI(filterTest)
 				.then(response => {
 					commit('set_test', response.data);
+					// console.log(response)
 					resolve(response.data);
 				}).catch((error) => {
-					reject(error);
+					// console.log(error);
+					
+					// reject(error);
+					//
+					try {
+						if (error.response.status >= 500) {
+							confirm(error.response.status + '伺服器錯誤')
+							reject(error)
+							return
+						  }
+						if (error.response.status >= 400) {
+							confirm(error.response.status + '客戶端錯誤')
+							reject(error)
+							return
+						  }
+					} catch (error) {
+						confirm(error)
+						reject(error)
+						return
+					}
+					//
 				})
 		})
 	},
@@ -27,6 +48,7 @@ const mutations = {
     set_test(state, test){
         state.test = test;
     },
+	
 };
 
 export default {
