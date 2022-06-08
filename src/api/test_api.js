@@ -23,7 +23,8 @@ export function apiTest(){
             resolve(response.data);
         })
         .catch(function (error) {
-            // console.log(error);
+            console.log(error)
+            // console.log(JSON.stringify(error.response.status));
             reject(error);
         });
 
