@@ -1,4 +1,5 @@
 import {useTestAPI} from '@/api'
+import swal from 'sweetalert';
 
 const state = {
     test:[],
@@ -23,17 +24,20 @@ const actions = {
 					//
 					try {
 						if (error.response.status >= 500) {
-							confirm(error.response.status + '伺服器錯誤')
+							// confirm(error.response.status + '伺服器錯誤')
+							swal(`${error.response.status}` , '伺服器錯誤')
 							reject(error)
 							return
 						  }
 						if (error.response.status >= 400) {
-							confirm(error.response.status + '客戶端錯誤')
+							// confirm(error.response.status + '客戶端錯誤')
+							swal(`${error.response.status}` , '客戶端錯誤')
 							reject(error)
 							return
 						  }
 					} catch (error) {
-						confirm(error)
+						// confirm(error)
+						swal(error)
 						reject(error)
 						return
 					}
