@@ -17,6 +17,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
         <RouterLink to="/test2">Test2</RouterLink>
         <RouterLink to="/test3">Test3</RouterLink>
         <RouterLink to="/json">Json</RouterLink>
+        <RouterLink to="/test4">Test4</RouterLink>
       </nav>
     </div>
   </header>

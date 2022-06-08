@@ -37,6 +37,11 @@ const router = createRouter({
       name: 'Json',
       component: () => import('../views/AdvertiseMaintenance.vue')
     },
+    {
+      path: '/test4',
+      name: 'test4',
+      component: () => import('../views/Test4View.vue')
+    },
   ]
 })
 
