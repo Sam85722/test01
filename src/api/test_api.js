@@ -6,7 +6,7 @@ export function apiTest(){
     return new Promise((resolve, reject) => {
         var config = {
             method: 'get',
-            url: 'https://app.sjen.com.tw/nms/pharmacist-service/self/canned-messages1',
+            url: 'https://app.sjen.com.tw/nms/pharmacist-service/self/canned-messages',
             headers: { }
             };
 
