@@ -30,9 +30,9 @@
 </div>
 
 <!-- API直接show在畫面 -->
-<!-- <div>
+<div>
     <h6>{{ axiosDataList.axi }}</h6>
-</div> -->
+</div>
 
 
 </template>

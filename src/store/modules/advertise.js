@@ -26,7 +26,7 @@ const actions = {
 		return new Promise((resolve, reject) => {
 			useGetAdsListAPI(filterAds)
 				.then(response => {
-					// console.log('set_AdsList廣告', response.data)
+					console.log('set_AdsList廣告', response.data)
 					commit('set_AdsList', response.data);
 					resolve(response.data);
 				}).catch((error) => {

@@ -23,7 +23,8 @@ export function apiGetAdsList(filterAds) {
 		};
 		
 		axios(config).then(function (response) {
-			resolve(response.data);
+			resolve(response);
+			// resolve(response.data);
 		}).catch(function (error) {
 			reject(error)
 		})

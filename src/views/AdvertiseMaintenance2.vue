@@ -3,6 +3,9 @@
           
           <!--  -->
           
+            <!-- 新增 -->
+            <el-button type="danger" @click="AddAdvertiseHandle">新增</el-button>
+            <!--  -->
 
             <div style="display: inline; padding-top: 0px; text-align: right">
             <el-pagination
@@ -40,7 +43,7 @@
 
             <el-table-column
               sortable
-              min-width="10%"
+              min-width="15%"
               label="建立日期"
               prop=""
             >
@@ -61,7 +64,7 @@
             </el-table-column>
             <el-table-column
               sortable
-              min-width="10%"
+              min-width="20%"
               label="廣告名稱"
               prop="name"
             />
@@ -177,119 +180,89 @@ export default {
     setup() {
       const advertiseList =  reactive({data:[]})
 
+    //   const AdsListData = reactive({
+    //   data: []
+    // });
+
 
       // const { filterAds, pages } = useAdsParament();
 
-      // const filterAds = {
-      //     "current_page": 1, //頁碼
-      //     "per_page": 5, //每頁數量
-      //     "order": "ID", //key=id
-      //     "desc": "desc", //由大到小
-      //     "id": -1,
-      //     "name": "", //廣告名稱
-      //     "type": "", //版面代號
-      //     "store_id": "", //分店代號
-      //     "start_date": "", //上架日期 "2022-05-01"
-      //     "end_date": "", //下架日期 "2022-12-31"
-      //     "promotion_id": "", //促銷代號 "0"
-      //     "create_date": "", //建檔日期 "2022-05-11 18:22:27"
-      //     "pid": "", //建檔人員 "test"
-      //     "content": "", //廣告描述內容 ""
-      //     "customer_no": "" //客戶編號 "00001894"
-      //   }
+      const filterAds = reactive({
+          "current_page": 1, //頁碼
+          "per_page": 5, //每頁數量
+          "order": "ID", //key=id
+          "desc": "desc", //由大到小
+          "id": -1,
+          "name": "", //廣告名稱
+          "type": "", //版面代號
+          "store_id": "", //分店代號
+          "start_date": "", //上架日期 "2022-05-01"
+          "end_date": "", //下架日期 "2022-12-31"
+          "promotion_id": "", //促銷代號 "0"
+          "create_date": "", //建檔日期 "2022-05-11 18:22:27"
+          "pid": "", //建檔人員 "test"
+          "content": "", //廣告描述內容 ""
+          "customer_no": "" //客戶編號 "00001894"
+        })
 
-        const filterAds = {    
-          current_page: 1,//頁碼
-          per_page: 5,//每頁數量
-          order: "ID", //key=id
-          desc: "desc", //由大到小  
-          id:-1,
-          name:"",//廣告名稱"父親節促銷11",
-          type:"",//版面代號 :"3",
-          store_id:"",//分店代號 "0", 
-          start_date:"",//上架日期 "2022-05-01",
-          end_date:"",//下架日期 "2022-12-31",
-          promotion_id:"",//促銷代號 "0",
-          create_date:"",//建檔日期 "2022-05-11 18:22:27",
-          pid:"",//建檔人員 "test", 
-          content:"",//廣告描述內容 "", 
-          customer_no:"",//客戶編號 "00001894" 
-        };
+        
+
+
+      const pages = reactive({
+        data: {
+          'current_page': 1, //頁碼
+          'last_page': 0, //最後一頁
+          'next_page': 0, //下一頁
+          'per_page': 5,//每頁數量
+          'prev_page': 0,//上一頁
+          'total': 0,
+        }
+      })
+
 
  
 
       onMounted(() => { 
-        // advertiseList.data = states.data
-        // console.log(states)
+        
       });
 
       
 //   
       const Click = () => {
         
-
         store.dispatch("QueryAdsListAPI", filterAds);
       }
       
       const Render = () => {
-        var list= store.getters.getAdList;
-        console.log(list)
-        advertiseList.data = list;
+        // var list= store.getters.getAdList;
+        // console.log(list)
+        // advertiseList.data = list;
 
+        //載入資料
+        advertiseList.data = store.getters.getAdList.data;
+        // console.log(advertiseList.data)
+
+        //載入total總數
+        pages.data.total = store.getters.getAdList.total;
+        // console.log(store.getters.getAdList.total)
+
+        console.log('pages.data:' + pages.data.per_page)
       }
     
 
       
-      // watch(() => store.getters.getAdList, function(NewList,OldList){
-      //   let listData = NewList;
-      //   advertiseList.data = listData.data;
+      
 
-        
-
-      //   if (advertiseList.data.length > 0) {
-      //     if (listData.per_page === 0) {
-      //       listData.per_page = 20;
-      //     }
-      //     listData.last_page = parseInt(listData.total/listData.per_page);
-      //     listData.next_page = listData.last_page
-      //     if (listData.current_page + 1 < listData.last_page) {
-      //       listData.next_page = listData.current_page + 1 ;
-      //     }
-      //     listData.prev_page = 0
-      //     if (listData.current_page - 1 > 0) {
-      //       listData.prev_page = listData.current_page - 1 ;
-      //     }
-      //     pages.data.current_page = listData.current_page;
-      //     pages.data.last_page = listData.last_page;
-      //     pages.data.next_page = listData.next_page;
-      //     pages.data.prev_page = listData.prev_page;
-      //     pages.data.per_page = listData.per_page;
-
-      //     if (pages.data.per_page === 0) {
-      //       pages.data.per_page =20;
-      //     }
-          
-
-      //   }else {
-      //     pages.data.current_page = 1;
-      //     pages.data.last_page = 0;
-      //     pages.data.next_page = 0;
-      //     pages.data.prev_page = 0;
-      //     pages.data.per_page = 20;
-      //     pages.data.total = 0;
-      //   }
-      // })
-
-     
       
 
 
       // 分頁處理
+      
       const handleChangePages = (currentPage) => {
         filterAds.current_page = currentPage; //頁碼
         pages.data.current_page = currentPage; 
         // handleLoadDb();
-        console.log(currentPage)
+        // console.log('currentPage' + currentPage)
       };
 
       // 改變分頁數量
@@ -298,31 +271,21 @@ export default {
         filterAds.current_page = 1; //目前所在頁數
         filterAds.per_page = per_page; //每頁數量
         // handleLoadDb();
-        // console.log(per_page)
-        };
+        // console.log('per_page' + per_page)
+      };
 
+      
 
-    
-    const pages = {
-      // data: {
-      //   'current_page': 1, //頁碼
-      //   'last_page': 0, //最後一頁
-      //   'next_page': 0, //下一頁
-      //   'per_page': 5,//每頁數量
-      //   'prev_page': 0,//上一頁
-      //   'total': 0,
-      // }
-
-      data: {
-        current_page: 1, //頁碼
-        last_page: 0, //最後一頁
-        next_page: 0, //下一頁
-        per_page: 5,//每頁數量
-        prev_page: 0,//上一頁
-        total: 0,
+      //新增廣告頁面
+      const AddAdvertiseHandle = () => {
+        router.push({
+          path: '/advertise-edit-page/-1',
+          // params: -1,
+        });
       }
 
-    }
+    
+      
 
 
     return{
@@ -337,7 +300,7 @@ export default {
       handleSizeChange,
 
       
-
+      AddAdvertiseHandle,
     }
   }
     

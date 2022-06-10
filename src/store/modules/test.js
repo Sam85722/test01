@@ -19,9 +19,7 @@ const actions = {
 					resolve(response.data);
 				}).catch((error) => {
 					// console.log(error);
-					
 					// reject(error);
-					//
 					try {
 						if (error.response.status >= 500) {
 							// confirm(error.response.status + '伺服器錯誤')
